@@ -7,8 +7,13 @@
   </head>
   <body>
     <h1>WebRTC Chat</h1>
-    <video id="localVideo" autoplay playsinline></video>
+    <video id="localVideo" autoplay playsinline muted></video>
     <video id="remoteVideo" autoplay playsinline></video>
+
+    <button onclick="createPeerConnection()">start connection</button>
+
+    <h1>chat:</h1>
+
     <input type="text" id="messageInput" placeholder="Type a message" />
     <button id="sendButton">Send</button>
     <div id="chat"></div>
