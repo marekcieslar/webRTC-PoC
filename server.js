@@ -1,4 +1,3 @@
-// server.js
 const fs = require('fs');
 const https = require('https');
 const express = require('express');
@@ -9,6 +8,9 @@ const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || 'localhost';
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 const server = https.createServer(
   {
     key: fs.readFileSync('../cert/cert.key'),
@@ -18,8 +20,6 @@ const server = https.createServer(
 );
 
 const io = socketIO(server);
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', (socket) => {
   console.log('A user connected');
