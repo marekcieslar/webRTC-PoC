@@ -11,8 +11,8 @@ const HOST = process.env.HOST || 'localhost';
 const app = express();
 const server = https.createServer(
   {
-    key: fs.readFileSync('cert.key'),
-    cert: fs.readFileSync('cert.crt'),
+    key: fs.readFileSync('../cert/cert.key'),
+    cert: fs.readFileSync('../cert/cert.crt'),
   },
   app
 );
